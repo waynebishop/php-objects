@@ -30,14 +30,28 @@ class Person {
 	}
 
 	public function sayBirthday() {
-		echo 'My birthday is on '.$this->dob;
+		
+		// Convert birthday into somethingthat you would say
+		// Convert the date into a timestamp
+		$birthdateAsTime = strtotime( $this->dob );
+		
+		$day = date('jS', $birthdateAsTime);
+
+		$monthYear = date('F Y', $birthdateAsTime);
+
+
+		$newFormat = date('jS F Y', $birthdateAsTime);
+
+		echo '<p>';
+		echo 'My birthday is on the '.$day.' of '.$monthYear; 
+		echo '</p>';
 	}
 
 	public function introduceSelf()	{
 
+		echo '<p>';
 		echo 'Hello, my name is '.$this->name;
+		echo '</p>';
 
 	}
-
-
 }
